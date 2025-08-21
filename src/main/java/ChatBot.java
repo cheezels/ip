@@ -15,4 +15,10 @@ public class ChatBot {
     public String getResponse(String input) {
         return input;
     }
+
+    public String getEndMessage() {
+        return """
+                Goodbye fellow countryman! Majulah Singapura!
+                """;
+    }
 }
