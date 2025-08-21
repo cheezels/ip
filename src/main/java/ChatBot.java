@@ -15,8 +15,7 @@ public class ChatBot {
     public String getIntroMessage() {
         return """
                 Hello! I'm Lee Kuan Yew, founding father of Singapore.
-                How can I help my fellow countryman today?
-                """;
+                How can I help my fellow countryman today?""";
     }
 
     public String getResponse(String input) {
@@ -60,6 +59,28 @@ public class ChatBot {
                 return "I shall add:\n" +
                         "  " + eventTask + "\n" +
                         "Singapore needs you to complete your " + tasks.size() + " tasks";
+
+            case "delete":
+                try {
+                    int taskNum = Integer.parseInt(parts[1]) - 1;
+
+                    if (taskNum < 0) {
+                        return "No negative numbers! Don't be stupid.";
+                    }
+
+                    if (taskNum >= tasks.size()) {
+                        return "You overestimate your workload. Get to work!";
+                    }
+
+                    Task task = tasks.get(taskNum);
+                    tasks.remove(taskNum);
+
+                    return "I've spent my whole lifetime building this. Sadly you won't. Removing:\n" +
+                           "  " + task + "\n" +
+                           "Singapore urges you to do your remaining " + tasks.size() + " tasks";
+                } catch (NumberFormatException e) {
+                    return "You must specify a task number!";
+                }
             default:
                 return "BE CONCISE WITH YOUR WORDS.";
         }
@@ -69,8 +90,7 @@ public class ChatBot {
         if (tasks.isEmpty()) {
             return """
                     This is not a game of cards!
-                    Your list is empty, get to work!
-                    """;
+                    Your list is empty, get to work!""";
         }
 
         StringBuilder sb = new StringBuilder("Your work awaits you!\n");
@@ -114,7 +134,6 @@ public class ChatBot {
 
     public String getEndMessage() {
         return """
-                Goodbye fellow countryman! Majulah Singapura!
-                """;
+                Goodbye fellow countryman! Majulah Singapura!""";
     }
 }
