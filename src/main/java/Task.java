@@ -20,6 +20,6 @@ public class Task {
     }
 
     @Override public String toString() {
-        return (this.isDone ? "[X]" : "[ ]") + this.description;
+        return (this.isDone ? "[X] " : "[ ] ") + this.description;
     }
 }
