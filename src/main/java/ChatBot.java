@@ -32,10 +32,34 @@ public class ChatBot {
             case "unmark":
                 return markTask(parts, false);
 
+            case "todo":
+                ToDoTask toDo = new ToDoTask(parts[1]);
+                tasks.add(toDo);
+                return "I shall add:\n" +
+                        "  " + toDo + "\n" +
+                        "Singapore needs you to complete your " + tasks.size() + " tasks";
+
+            case "deadline":
+                String[] deadlineParts = parts[1].split("/", 2);
+
+                DeadlineTask deadlineTask = new DeadlineTask(deadlineParts[0], deadlineParts[1]);
+                tasks.add(deadlineTask);
+
+                return "I shall add:\n" +
+                        "  " + deadlineTask + "\n" +
+                        "Singapore needs you to complete your " + tasks.size() + " tasks";
+
+            case "event":
+                String[] eventParts = parts[1].split("/", 3);
+
+                EventTask eventTask = new EventTask(eventParts[0], eventParts[1], eventParts[2]);
+                tasks.add(eventTask);
+
+                return "I shall add:\n" +
+                        "  " + eventTask + "\n" +
+                        "Singapore needs you to complete your " + tasks.size() + " tasks";
             default:
-                Task task = new Task(input);
-                tasks.add(task);
-                return "I shall add: " + input;
+                return "BE CONCISE WITH YOUR WORDS.";
         }
     }
 
