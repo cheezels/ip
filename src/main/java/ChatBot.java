@@ -51,7 +51,7 @@ public class ChatBot {
         for (int i = 0; i < tasks.size(); i++) {
             Task task = tasks.get(i);
             char isDone = task.checkDone() ? 'X' : ' ';
-            sb.append((i + 1) + task.toString() + "\n");
+            sb.append((i + 1) + ". " + task.toString() + "\n");
         }
         return sb.toString().trim();
     }
