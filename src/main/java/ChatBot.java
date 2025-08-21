@@ -41,6 +41,7 @@ public class ChatBot {
 
             case "deadline":
                 String[] deadlineParts = parts[1].split("/", 2);
+                if (deadlineParts.length != 2) return "Discipline requires deadlines.";
 
                 DeadlineTask deadlineTask = new DeadlineTask(deadlineParts[0], deadlineParts[1]);
                 tasks.add(deadlineTask);
@@ -51,6 +52,7 @@ public class ChatBot {
 
             case "event":
                 String[] eventParts = parts[1].split("/", 3);
+                if (eventParts.length != 3) return "It takes time to build a country like Singapore.";
 
                 EventTask eventTask = new EventTask(eventParts[0], eventParts[1], eventParts[2]);
                 tasks.add(eventTask);
