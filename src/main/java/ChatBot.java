@@ -1,8 +1,6 @@
 public class ChatBot {
-    private String name;
 
-    public ChatBot(String name) {
-        this.name = name;
+    public ChatBot() {
     }
 
     public String getIntroMessage() {

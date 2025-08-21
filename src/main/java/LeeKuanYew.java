@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class LeeKuanYew {
     public static void main(String[] args) {
-        ChatBot chatBot = new ChatBot("Lee Kuan Yew");
+        ChatBot chatBot = new ChatBot();
         System.out.println(chatBot.getIntroMessage());
 
         Scanner sc = new Scanner(System.in);
