@@ -1,6 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class ChatBot {
 
+    List<String> tasks;
+
     public ChatBot() {
+        this.tasks = new ArrayList<>();
     }
 
     public String getIntroMessage() {
@@ -11,7 +18,18 @@ public class ChatBot {
     }
 
     public String getResponse(String input) {
-        return input;
+        switch (input.toLowerCase()) {
+            case "list":
+                return getTaskList();
+
+            default:
+                tasks.add(input);
+                return "I shall add: " + input;
+        }
+    }
+
+    public String getTaskList() {
+        return null;
     }
 
     public String getEndMessage() {
