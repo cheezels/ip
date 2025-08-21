@@ -9,7 +9,7 @@ public class LeeKuanYew {
         while (true) {
             String userInput = sc.nextLine();
 
-            // Quit condition
+            // Quit condition with 'bye'
             if (userInput.equalsIgnoreCase("bye")) {
                 System.out.println(chatBot.getEndMessage());
                 break;
