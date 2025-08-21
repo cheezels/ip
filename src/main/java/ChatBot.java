@@ -29,7 +29,18 @@ public class ChatBot {
     }
 
     public String getTaskList() {
-        return null;
+        if (tasks.isEmpty()) {
+            return """
+                    This is not a game of cards!
+                    Your list is empty, get to work!
+                    """;
+        }
+
+        StringBuilder sb = new StringBuilder("Your work awaits you!\n");
+        for (int i = 0; i < tasks.size(); i++) {
+            sb.append((i + 1) + ". " + tasks.get(i) + "\n");
+        }
+        return sb.toString().trim();
     }
 
     public String getEndMessage() {
