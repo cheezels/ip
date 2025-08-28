@@ -145,23 +145,6 @@ public class ChatBot {
 
     }
 
-    public String getTaskList() {
-        if (tasks.isEmpty()) {
-            return """
-                    This is not a game of cards!
-                    Your list is empty, get to work!""";
-        }
-
-        StringBuilder sb = new StringBuilder("Your work awaits you!\n");
-        for (int i = 0; i < tasks.size(); i++) {
-            Task task = tasks.get(i);
-            char isDone = task.checkDone() ? 'X' : ' ';
-            sb.append((i + 1) + ". " + task.toString() + "\n");
-        }
-        return sb.toString().trim();
-    }
-
-
     public int getIndex(String[] parts) throws Exception {
         if (parts.length < 2) {
             throw new Exception("You must specify a task number!");
@@ -176,10 +159,8 @@ public class ChatBot {
         if (taskNum >= tasks.size()) {
             throw new Exception("You overestimate your workload. Get to work!");
         }
+
+        return taskNum;
     }
 
-    public String getEndMessage() {
-        return """
-                Goodbye fellow countryman! Majulah Singapura!""";
-    }
 }
