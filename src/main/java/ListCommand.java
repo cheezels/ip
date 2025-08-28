@@ -6,6 +6,7 @@ public class ListCommand extends Command {
             ui.showMessage("""
                     This is not a game of cards!
                     Your list is empty, get to work!""");
+            return;
         }
 
         StringBuilder sb = new StringBuilder("Your work awaits you!\n");
