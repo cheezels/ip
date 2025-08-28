@@ -16,8 +16,8 @@ public class Storage {
         this.filePath = filePath;
     }
 
-    public List<Task> load() throws IOException {
-        List<Task> tasks = new ArrayList<>();
+    public TaskList load() throws IOException {
+        TaskList tasks = new TaskList();
         File file = new File(filePath);
 
         if (!file.exists()) {
@@ -36,12 +36,13 @@ public class Storage {
         return tasks;
     }
 
-    public void save(List<Task> tasks) throws IOException {
+    public void save(TaskList tasks) throws IOException {
         FileWriter fw = new FileWriter(filePath);
 
-        for (Task task : tasks) {
-            fw.write(formatTask(task));
+        for (int i = 0; i < tasks.size(); i++) {
+            fw.write(formatTask(tasks.get(i)));
         }
+
         fw.close();
     }
 

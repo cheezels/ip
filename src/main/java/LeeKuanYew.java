@@ -1,23 +1,34 @@
-import java.util.Scanner;
-
 public class LeeKuanYew {
-    public static void main(String[] args) {
-        ChatBot chatBot = new ChatBot();
-        System.out.println(chatBot.getIntroMessage());
 
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            String userInput = sc.nextLine();
+    private Storage storage;
+    private Ui ui;
+    private ChatBot chatBot;
+    private TaskList taskList;
 
-            // Quit condition with 'bye'
-            if (userInput.equalsIgnoreCase("bye")) {
-                System.out.println(chatBot.getEndMessage());
-                break;
+    public LeeKuanYew(String filePath) {
+        this.storage = new Storage(filePath);
+        this.ui = new Ui();
+        this.chatBot = new ChatBot();
+        this.taskList = new TaskList();
+    }
+
+    public void run() {
+        ui.showIntroMessage();
+        boolean exit = false;
+
+        while (!exit) {
+            try {
+                String input = ui.getInput();
+                Command c = chatBot.parseCommand(input);
+                c.execute(taskList, ui, storage);
+                exit = c.checkExit();
+            } catch (Exception e) {
+                ui.showMessage(e.getMessage());
             }
-
-            System.out.println(chatBot.getResponse(userInput));
         }
-        sc.close();
+    }
 
+    public static void main(String[] args) {
+        new LeeKuanYew("data/LeeKaunYew.txt").run();
     }
 }
