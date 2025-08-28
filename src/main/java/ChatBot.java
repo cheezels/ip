@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSException;
+
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -110,13 +112,41 @@ public class ChatBot {
 
         switch (command) {
             case "bye":
+                return new ByeCommand();
+
             case "list":
+                return new ListCommand();
+
             case "mark":
+                int i = getIndex(parts);
+                return new MarkCommand(i, true);
+
             case "unmark":
+                int j = getIndex(parts);
+                return new MarkCommand(j, false);
+
             case "delete":
+                int k = getIndex(parts);
+                return new DeleteCommand(k);
+
+            case "save":
+
+
             case "todo":
+                return new ToDoCommand(parts[1]);
+
             case "deadline":
+                String[] deadlineParts = parts[1].split("/", 2);
+                if (deadlineParts.length != 2) throw new Exception("Discipline requires deadlines.");
+
+                return new DeadlineCommand(deadlineParts[0], deadlineParts[1]);
+
             case "event":
+                String[] eventParts = parts[1].split("/", 3);
+                if (eventParts.length != 3) throw new Exception("It takes time to build a country like Singapore.");
+
+                return new EventCommand(eventParts[0], eventParts[1], eventParts[2]);
+
             default:
                 throw new Exception("YOUR WORDS MEAN NOTHING!");
         }
@@ -139,33 +169,20 @@ public class ChatBot {
         return sb.toString().trim();
     }
 
-    public String markTask(String[] parts, boolean mark) {
-        // check if there is anything after mark
-        if (parts.length < 2) return "You must specify a task number!";
 
-        try {
-            int taskNum = Integer.parseInt(parts[1]) - 1;
+    public int getIndex(String[] parts) throws Exception {
+        if (parts.length < 2) {
+            throw new Exception("You must specify a task number!");
+        }
 
-            if (taskNum < 0) {
-                return "No negative numbers! Don't be stupid.";
-            }
+        int taskNum = Integer.parseInt(parts[1]) - 1;
 
-            if (taskNum >= tasks.size()) {
-                return "You overestimate your workload. Get to work!";
-            }
+        if (taskNum < 0) {
+            throw new Exception ("No negative numbers! Don't be stupid.");
+        }
 
-            Task task = tasks.get(taskNum);
-            if (mark) {
-                task.markDone();
-                return "You have the IRON in you! Good job!\n" + task;
-
-            } else {
-                task.unmarkDone();
-                return "No shame in failure. Pick yourself up, Singapore needs you.\n" + task;
-            }
-        } catch (NumberFormatException e) {
-            return "That's not a valid number.";
-
+        if (taskNum >= tasks.size()) {
+            throw new Exception("You overestimate your workload. Get to work!");
         }
     }
 
