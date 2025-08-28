@@ -1,4 +1,9 @@
-package
+package LeeKuanYew;
+
+import LeeKuanYew.Task.TaskList;
+import LeeKuanYew.Command.*;
+
+import java.io.IOException;
 
 public class LeeKuanYew {
 
@@ -11,7 +16,12 @@ public class LeeKuanYew {
         this.storage = new Storage(filePath);
         this.ui = new Ui();
         this.chatBot = new ChatBot();
-        this.taskList = new TaskList();
+
+        try {
+            this.taskList = storage.load();
+        } catch (IOException e) {
+            this.taskList = new TaskList();
+        }
     }
 
     public void run() {
@@ -31,6 +41,6 @@ public class LeeKuanYew {
     }
 
     public static void main(String[] args) {
-        new LeeKuanYew("data/LeeKaunYew.txt").run();
+        new LeeKuanYew("../../../../data/LeeKuanYew.txt").run();
     }
 }

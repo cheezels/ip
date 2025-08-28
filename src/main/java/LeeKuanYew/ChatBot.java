@@ -1,4 +1,4 @@
-package LeeKuanYew.ChatBot;
+package LeeKuanYew;
 
 import LeeKuanYew.Command.*;
 

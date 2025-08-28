@@ -1,4 +1,4 @@
-package LeeKuanYew.Storage;
+package LeeKuanYew;
 
 import LeeKuanYew.Task.*;
 

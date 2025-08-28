@@ -1,4 +1,4 @@
-package LeeKuanYew.Ui;
+package LeeKuanYew;
 
 import java.util.Scanner;
 
