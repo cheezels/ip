@@ -2,21 +2,13 @@ import org.w3c.dom.ls.LSException;
 
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChatBot {
 
-    private List<Task> tasks;
-    private Storage storage;
+    private TaskList tasks;
 
     public ChatBot() {
-        this.storage = new Storage("./data/LeeKuanYew.txt");
-        try {
-            this.tasks = storage.load();
-        } catch (IOException e) {
-            this.tasks = new ArrayList<>();
-        }
     }
 
     public String getIntroMessage() {
@@ -130,7 +122,7 @@ public class ChatBot {
                 return new DeleteCommand(k);
 
             case "save":
-
+                return new SaveCommand();
 
             case "todo":
                 return new ToDoCommand(parts[1]);
