@@ -1,12 +1,19 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatBot {
 
-    List<Task> tasks;
+    private List<Task> tasks;
+    private Storage storage;
 
     public ChatBot() {
-        this.tasks = new ArrayList<>();
+        this.storage = new Storage("./data/LeeKuanYew.txt");
+        try {
+            this.tasks = storage.load();
+        } catch (IOException e) {
+            this.tasks = new ArrayList<>();
+        }
     }
 
     public String getIntroMessage() {
@@ -77,6 +84,13 @@ public class ChatBot {
                            "Singapore urges you to do your remaining " + tasks.size() + " tasks";
                 } catch (NumberFormatException e) {
                     return "You must specify a task number!";
+                }
+            case "save":
+                try {
+                    this.storage.save(this.tasks);
+                    return "It has been written down.";
+                } catch (IOException e) {
+                    return "Error in saving file.";
                 }
             default:
                 return "BE CONCISE WITH YOUR WORDS.";

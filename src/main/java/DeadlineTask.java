@@ -6,8 +6,12 @@ public class DeadlineTask extends Task {
         this.deadline = deadline;
     }
 
+    public String getDeadline() {
+        return this.deadline;
+    }
+
     @Override
     public String toString() {
-        return "[D] " + super.toString() + "(by: " + this.deadline + ")";
+        return "[D]" + super.toString() + "(by: " + this.deadline + ")";
     }
 }
