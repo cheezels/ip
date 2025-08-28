@@ -104,6 +104,24 @@ public class ChatBot {
         }
     }
 
+    public Command parseCommand(String input) throws Exception {
+        String[] parts = input.split(" ", 2);
+        String command = parts[0].toLowerCase();
+
+        switch (command) {
+            case "bye":
+            case "list":
+            case "mark":
+            case "unmark":
+            case "todo":
+            case "deadline":
+            case "event":
+            default:
+                throw new Exception("YOUR WORDS MEAN NOTHING!");
+        }
+
+    }
+
     public String getTaskList() {
         if (tasks.isEmpty()) {
             return """
