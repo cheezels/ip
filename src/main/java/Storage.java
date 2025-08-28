@@ -3,6 +3,8 @@ import org.w3c.dom.ls.LSException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,7 +27,9 @@ public class Storage {
         Scanner sc = new Scanner(file);
         while(sc.hasNextLine()) {
             String line = sc.nextLine();
-            tasks.add(parseTask(line));
+            if (!line.isEmpty()) {
+                tasks.add(parseTask(line));
+            }
         }
 
         sc.close();
@@ -47,19 +51,19 @@ public class Storage {
         boolean isDone = parts[1].equals("1");
         String taskDetails = parts[2];
 
-        if (taskType.equals("T ")) {
+        if (taskType.equals("T")) {
             ToDoTask toDoTask = new ToDoTask(taskDetails);
             if (isDone) {
                 toDoTask.markDone();
             }
             return toDoTask;
-        } else if (taskType.equals("D ")) {
+        } else if (taskType.equals("D")) {
             DeadlineTask deadlineTask = new DeadlineTask(taskDetails, parts[3]);
             if (isDone) {
                 deadlineTask.markDone();
             }
             return deadlineTask;
-        } else if (taskType.equals("E ")) {
+        } else if (taskType.equals("E")) {
             EventTask eventTask = new EventTask(taskDetails, parts[3], parts[4]);
             if (isDone) {
                 eventTask.markDone();
@@ -74,12 +78,12 @@ public class Storage {
         String isDone = task.checkDone() ? "1" : "0";
 
         if (task instanceof ToDoTask) {
-            return "T | " + isDone + " | " + task.getDescription() + "\n";
+            return "T|" + isDone + "|" + task.getDescription() + "\n";
         } else if (task instanceof DeadlineTask d) {
-            return "D | " + isDone + " | " + d.getDescription() + " | " + d.getDeadline() + "\n";
+            return "D|" + isDone + "|" + d.getDescription() + "|" + d.getDeadline() + "\n";
         } else if (task instanceof EventTask e) {
-            return "E | " + isDone + " | " + e.getDescription()
-                    + " | " + e.getStartDate() + " | " + e.getEndDate() + "\n";
+            return "E|" + isDone + "|" + e.getDescription()
+                    + "|" + e.getStartDate() + "|" + e.getEndDate() + "\n";
         } else {
             return "\n";
         }
