@@ -1,3 +1,8 @@
+package LeeKuanYew.Command;
+
+import LeeKuanYew.Task.TaskList;
+import LeeKuanYew.Ui;
+import LeeKuanYew.Storage;
 import java.io.IOException;
 
 public class SaveCommand extends Command {
@@ -8,7 +13,7 @@ public class SaveCommand extends Command {
             storage.save(taskList);
             ui.showMessage("It has been written down.");
         } catch (IOException e) {
-            ui.showMessage("Error in saving file.");
+            ui.showMessage(e.getMessage());
         }
     }
 }

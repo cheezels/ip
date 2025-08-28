@@ -1,3 +1,9 @@
+package LeeKuanYew.Command;
+
+import LeeKuanYew.Ui;
+import LeeKuanYew.Storage;
+import LeeKuanYew.Task.TaskList;
+
 public class ByeCommand extends Command {
 
     @Override

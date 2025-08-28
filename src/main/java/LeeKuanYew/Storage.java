@@ -1,12 +1,10 @@
-import org.w3c.dom.ls.LSException;
+package LeeKuanYew.Storage;
+
+import LeeKuanYew.Task.*;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Storage {
@@ -71,7 +69,7 @@ public class Storage {
             }
             return eventTask;
         } else {
-            throw new IllegalArgumentException("Unknown Task Type: " + taskType);
+            throw new IllegalArgumentException("Unknown LeeKuanYew.Task.LeeKuanYew.Task Type: " + taskType);
         }
     }
 

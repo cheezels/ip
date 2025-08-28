@@ -1,8 +1,6 @@
-import org.w3c.dom.ls.LSException;
+package LeeKuanYew.ChatBot;
 
-import java.io.IOException;
-import java.time.format.DateTimeParseException;
-import java.util.List;
+import LeeKuanYew.Command.*;
 
 public class ChatBot {
 

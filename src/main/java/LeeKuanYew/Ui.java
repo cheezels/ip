@@ -1,3 +1,5 @@
+package LeeKuanYew.Ui;
+
 import java.util.Scanner;
 
 public class Ui {

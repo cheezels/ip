@@ -1,9 +1,15 @@
+package LeeKuanYew.Command;
+
+import LeeKuanYew.Ui;
+import LeeKuanYew.Storage;
+import LeeKuanYew.Task.DeadlineTask;
+import LeeKuanYew.Task.TaskList;
 import java.time.format.DateTimeParseException;
 
 public class DeadlineCommand extends Command {
 
     private String description;
-    private String deadline; // let DateTime conversion and any exception throwing be done by DeadlineTask class
+    private String deadline; // let DateTime conversion and any exception throwing be done by LeeKuanYew.Task.DeadlineTask class
 
     public DeadlineCommand(String description, String deadline) {
         this.description = description;

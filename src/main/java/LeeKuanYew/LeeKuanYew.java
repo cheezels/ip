@@ -1,3 +1,5 @@
+package
+
 public class LeeKuanYew {
 
     private Storage storage;
