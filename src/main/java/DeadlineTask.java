@@ -1,10 +1,11 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class DeadlineTask extends Task {
     private LocalDate deadline;
 
-    public DeadlineTask(String description, String deadline) {
+    public DeadlineTask(String description, String deadline) throws DateTimeParseException {
         super(description);
         this.deadline = LocalDate.parse(deadline);
     }

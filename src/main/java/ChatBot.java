@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,12 +47,18 @@ public class ChatBot {
                 String[] deadlineParts = parts[1].split("/", 2);
                 if (deadlineParts.length != 2) return "Discipline requires deadlines.";
 
-                DeadlineTask deadlineTask = new DeadlineTask(deadlineParts[0], deadlineParts[1]);
-                tasks.add(deadlineTask);
+                // Invalid date format check
+                try {
+                    DeadlineTask deadlineTask = new DeadlineTask(deadlineParts[0], deadlineParts[1]);
+                    tasks.add(deadlineTask);
 
-                return "I shall add:\n" +
-                        "  " + deadlineTask + "\n" +
-                        "Singapore needs you to complete your " + tasks.size() + " tasks";
+                    return "I shall add:\n" +
+                            "  " + deadlineTask + "\n" +
+                            "Singapore needs you to complete your " + tasks.size() + " tasks";
+
+                } catch (DateTimeParseException e) {
+                    return "Date must be in yyyy-mm-dd format.";
+                }
 
             case "event":
                 String[] eventParts = parts[1].split("/", 3);
