@@ -11,9 +11,13 @@ public class MarkCommand extends Command {
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) {
         if (mark) {
-            taskList.get(index).markDone();
+            Task task = taskList.get(index);
+            task.markDone();
+            ui.showMessage("You have the IRON in you! Good job!\n" + task);
         } else {
-            taskList.get(index).unmarkDone();
+            Task task = taskList.get(index);
+            task.unmarkDone();
+            ui.showMessage("No shame in failure. Pick yourself up, Singapore needs you.\n" + task);
         }
     }
 
