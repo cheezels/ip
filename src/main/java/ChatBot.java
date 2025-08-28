@@ -113,6 +113,7 @@ public class ChatBot {
             case "list":
             case "mark":
             case "unmark":
+            case "delete":
             case "todo":
             case "deadline":
             case "event":
