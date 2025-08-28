@@ -14,16 +14,12 @@ public class EventCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) {
-        try {
-            EventTask task = new EventTask(description, startDate, endDate);
-            taskList.add(task);
-            ui.showMessage(
-                    "I shall add:\n" +
-                    "  " + task + "\n" +
-                    "Singapore needs you to complete your " + taskList.size() + " tasks"
-            );
-        } catch (DateTimeParseException e) {
-            ui.showMessage("Date must be in yyyy-mm-dd format.");
-        }
+        EventTask task = new EventTask(description, startDate, endDate);
+        taskList.add(task);
+        ui.showMessage(
+                "I shall add:\n" +
+                "  " + task + "\n" +
+                "Singapore needs you to complete your " + taskList.size() + " tasks"
+        );
     }
 }
