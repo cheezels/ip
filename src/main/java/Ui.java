@@ -10,7 +10,7 @@ public class Ui {
                 How can I help my fellow countryman today?""");
     }
 
-    public String getReply() {
+    public String getInput() {
         return sc.nextLine();
     }
 
