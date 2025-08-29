@@ -1,6 +1,10 @@
 package LeeKuanYew;
 
-import LeeKuanYew.Task.*;
+import LeeKuanYew.Task.TaskList;
+import LeeKuanYew.Task.Task;
+import LeeKuanYew.Task.ToDoTask;
+import LeeKuanYew.Task.DeadlineTask;
+import LeeKuanYew.Task.EventTask;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -73,7 +77,7 @@ public class Storage {
         }
     }
 
-    private String formatTask(Task task) {
+    protected String formatTask(Task task) {
         String isDone = task.checkDone() ? "1" : "0";
 
         if (task instanceof ToDoTask) {

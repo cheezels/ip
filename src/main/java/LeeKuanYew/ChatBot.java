@@ -1,6 +1,14 @@
 package LeeKuanYew;
 
-import LeeKuanYew.Command.*;
+import LeeKuanYew.Command.Command;
+import LeeKuanYew.Command.ByeCommand;
+import LeeKuanYew.Command.ListCommand;
+import LeeKuanYew.Command.MarkCommand;
+import LeeKuanYew.Command.DeleteCommand;
+import LeeKuanYew.Command.SaveCommand;
+import LeeKuanYew.Command.ToDoCommand;
+import LeeKuanYew.Command.DeadlineCommand;
+import LeeKuanYew.Command.EventCommand;
 
 public class ChatBot {
 
