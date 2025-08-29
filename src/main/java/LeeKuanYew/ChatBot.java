@@ -4,9 +4,6 @@ import LeeKuanYew.Command.*;
 
 public class ChatBot {
 
-    public ChatBot() {
-    }
-
     public Command parseCommand(String input) throws Exception {
         String[] parts = input.split(" ", 2);
         String command = parts[0].toLowerCase();
