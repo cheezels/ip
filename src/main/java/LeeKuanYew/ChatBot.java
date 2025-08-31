@@ -12,6 +12,15 @@ import LeeKuanYew.Command.EventCommand;
 
 public class ChatBot {
 
+    /**
+     * Parses the given user input string and returns the corresponding Command.
+     *
+     * Recognised commands include bye, list, mark, unmark, delete, save, todo, deadline, and event.
+     *
+     * @param input the full user input string to parse
+     * @return a Command representing the parsed input
+     * @throws Exception if the input is invalid or does not match any command
+     */
     public Command parseCommand(String input) throws Exception {
         String[] parts = input.split(" ", 2);
         String command = parts[0].toLowerCase();

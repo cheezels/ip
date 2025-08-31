@@ -24,6 +24,13 @@ public class LeeKuanYew {
         }
     }
 
+    /**
+     * Runs the main program loop.
+     *
+     * Displays the intro message, repeatedly reads user input, parses it into a
+     * Command, executes it, and checks whether to exit. Handles exceptions by
+     * showing error messages through the UI.
+     */
     public void run() {
         ui.showIntroMessage();
         boolean exit = false;
