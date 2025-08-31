@@ -119,7 +119,6 @@ public class Storage {
      * @param task the Task to format
      * @return the formatted string representation of the task
      */
-
     protected String formatTask(Task task) {
         String isDone = task.checkDone() ? "1" : "0";
 
