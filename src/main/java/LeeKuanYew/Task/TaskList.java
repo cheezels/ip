@@ -35,8 +35,7 @@ public class TaskList {
      * @param keyword the keyword to search for
      * @return a TaskList containing all matching tasks
      */
-
-    public TaskList search(String keyword) {
+    public TaskList find(String keyword) {
         TaskList results = new TaskList();
 
         for (Task task : tasks) {
