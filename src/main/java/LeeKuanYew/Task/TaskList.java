@@ -29,4 +29,21 @@ public class TaskList {
         return this.tasks.size();
     }
 
+    /**
+     * Searches for tasks that contain the given keyword in their string representation.
+     *
+     * @param keyword the keyword to search for
+     * @return a TaskList containing all matching tasks
+     */
+    public TaskList find(String keyword) {
+        TaskList results = new TaskList();
+
+        for (Task task : tasks) {
+            if (task.toString().contains(keyword)) {
+                results.add(task);
+            }
+        }
+        return results;
+    }
+
 }

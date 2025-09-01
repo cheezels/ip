@@ -6,6 +6,7 @@ import LeeKuanYew.Command.ListCommand;
 import LeeKuanYew.Command.MarkCommand;
 import LeeKuanYew.Command.DeleteCommand;
 import LeeKuanYew.Command.SaveCommand;
+import LeeKuanYew.Command.FindCommand;
 import LeeKuanYew.Command.ToDoCommand;
 import LeeKuanYew.Command.DeadlineCommand;
 import LeeKuanYew.Command.EventCommand;
@@ -70,6 +71,9 @@ public class ChatBot {
 
         case "save":
             return new SaveCommand();
+            
+        case "find":
+            return new FindCommand(parts[1]);
 
         case "todo":
             return new ToDoCommand(parts[1]);
@@ -85,7 +89,7 @@ public class ChatBot {
             if (eventParts.length != 3) throw new Exception("It takes time to build a country like Singapore.");
 
             return new EventCommand(eventParts[0], eventParts[1], eventParts[2]);
-
+            
         default:
             throw new Exception("YOUR WORDS MEAN NOTHING!");
         }
