@@ -18,10 +18,10 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         EventTask task = new EventTask(description, startDate, endDate);
         taskList.add(task);
-        ui.showMessage(
+        return ui.showMessage(
                 "I shall add:\n" +
                 "  " + task + "\n" +
                 "Singapore needs you to complete your " + taskList.size() + " tasks"

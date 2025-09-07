@@ -17,17 +17,17 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage storage) {
+    public String execute(TaskList taskList, Ui ui, Storage storage) {
         try {
             DeadlineTask task = new DeadlineTask(description, deadline);
             taskList.add(task);
-            ui.showMessage(
+            return ui.showMessage(
                     "I shall add:\n" +
                             "  " + task + "\n" +
                             "Singapore needs you to complete your " + taskList.size() + " tasks"
             );
         } catch (DateTimeParseException e) {
-            ui.showMessage("Date must be in yyyy-mm-dd format.");
+            return ui.showMessage("Date must be in yyyy-mm-dd format.");
         }
     }
 }

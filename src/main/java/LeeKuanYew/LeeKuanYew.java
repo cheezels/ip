@@ -5,6 +5,9 @@ import LeeKuanYew.Command.*;
 
 import java.io.IOException;
 
+import javafx.application.Application;
+
+
 public class LeeKuanYew {
 
     private Storage storage;
@@ -46,6 +49,16 @@ public class LeeKuanYew {
             }
         }
     }
+
+    public String getResponse(String input) {
+        try {
+            Command c = chatBot.parseCommand(input);
+            return c.execute(taskList, ui, storage);
+        } catch (Exception e) {
+            return ui.showMessage(e.getMessage());
+        }
+    }
+
 
     public static void main(String[] args) {
         new LeeKuanYew("../../../../data/LeeKuanYew.txt").run();

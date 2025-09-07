@@ -11,10 +11,10 @@ public class Ui {
      *
      * Called when the program first starts.
      */
-    public void showIntroMessage() {
-        System.out.println("""
+    public String showIntroMessage() {
+        return """
                 Hello! I'm Lee Kuan Yew, founding father of Singapore.
-                How can I help my fellow countryman today?""");
+                How can I help my fellow countryman today?""";
     }
 
     /**
@@ -31,8 +31,8 @@ public class Ui {
      *
      * @param message the message to display
      */
-    public void showMessage(String message) {
-        System.out.println(message);
+    public String showMessage(String message) {
+        return message;
     }
 
 }
