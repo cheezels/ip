@@ -15,17 +15,16 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute (TaskList taskList, Ui ui, Storage storage) {
+    public String execute (TaskList taskList, Ui ui, Storage storage) {
         if (taskList.size() == 0) {
-            ui.showMessage("""
+            return ui.showMessage("""
                     This is not a game of cards!
                     Your list is empty, get to work!""");
-            return;
         }
 
         TaskList result = taskList.find(keyword);
         ListCommand c = new ListCommand();
-        c.execute(result, ui, storage);
+        return c.execute(result, ui, storage);
     }
 
 }

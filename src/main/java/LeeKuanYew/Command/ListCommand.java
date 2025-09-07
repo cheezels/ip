@@ -8,12 +8,11 @@ import LeeKuanYew.Task.TaskList;
 public class ListCommand extends Command {
 
     @Override
-    public void execute (TaskList taskList, Ui ui, Storage storage) {
+    public String execute (TaskList taskList, Ui ui, Storage storage) {
         if (taskList.size() == 0) {
-            ui.showMessage("""
+            return ui.showMessage("""
                     This is not a game of cards!
                     Your list is empty, get to work!""");
-            return;
         }
 
         StringBuilder sb = new StringBuilder("Your work awaits you!\n");
@@ -23,6 +22,6 @@ public class ListCommand extends Command {
             sb.append((i + 1) + ". " + task.toString() + "\n");
         }
 
-        ui.showMessage(sb.toString().trim());
+        return ui.showMessage(sb.toString().trim());
     }
 }
