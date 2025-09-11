@@ -36,28 +36,10 @@ public class ChatBot {
             return new ListCommand();
 
         case "mark":
-            if (parts.length < 2) {
-                throw new Exception("You must specify a task number!");
-            }
-
-            try {
-                int i = Integer.parseInt(parts[1]) - 1;
-                return new MarkCommand(i, true);
-            } catch (NumberFormatException e) {
-                throw new Exception("This is not a number.");
-            }
+            return handleMark(parts, true);
 
         case "unmark":
-            if (parts.length < 2) {
-                throw new Exception("You must specify a task number!");
-            }
-
-            try {
-                int j = Integer.parseInt(parts[1]) - 1;
-                return new MarkCommand(j, false);
-            } catch (NumberFormatException e) {
-                throw new Exception("This is not a number.");
-            }
+            return handleMark(parts, false);
 
         case "delete":
             if (parts.length < 2) {
@@ -96,5 +78,18 @@ public class ChatBot {
             throw new Exception("YOUR WORDS MEAN NOTHING!");
         }
 
+    }
+
+    private MarkCommand handleMark(String[] input, boolean isMark) throws Exception {
+        if (input.length < 2) {
+            throw new Exception("You must specify a task number!");
+        }
+
+        try {
+            int j = Integer.parseInt(input[1]) - 1;
+            return new MarkCommand(j, isMark);
+        } catch (NumberFormatException e) {
+            throw new Exception("This is not a number.");
+        }
     }
 }
