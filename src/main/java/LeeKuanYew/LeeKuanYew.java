@@ -61,6 +61,6 @@ public class LeeKuanYew {
 
 
     public static void main(String[] args) {
-        new LeeKuanYew("../../../../data/LeeKuanYew.txt").run();
+        new LeeKuanYew("../../../data/LeeKuanYew.txt").run();
     }
 }
