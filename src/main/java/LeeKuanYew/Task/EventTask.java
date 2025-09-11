@@ -1,5 +1,8 @@
 package LeeKuanYew.Task;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 public class EventTask extends Task {
     private String startDate;
     private String endDate;
@@ -16,6 +19,11 @@ public class EventTask extends Task {
 
     public String getEndDate() {
         return this.endDate;
+    }
+
+    public void updateDates(String startDate, String endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Override
