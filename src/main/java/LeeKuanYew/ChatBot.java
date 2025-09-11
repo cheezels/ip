@@ -23,6 +23,8 @@ public class ChatBot {
      * @throws Exception if the input is invalid or does not match any command
      */
     public Command parseCommand(String input) throws Exception {
+        assert input != null && !input.trim().isEmpty() : "Input should not be null or empty";
+
         String[] parts = input.split(" ", 2);
         String command = parts[0].toLowerCase();
 
