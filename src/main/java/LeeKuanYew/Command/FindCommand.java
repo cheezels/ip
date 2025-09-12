@@ -1,9 +1,6 @@
 package LeeKuanYew.Command;
 
-import java.util.List;
-
 import LeeKuanYew.Storage;
-import LeeKuanYew.Task.Task;
 import LeeKuanYew.Task.TaskList;
 import LeeKuanYew.Ui;
 

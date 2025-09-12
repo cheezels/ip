@@ -21,6 +21,10 @@ public class DeadlineTask extends Task {
         return this.deadline.toString();
     }
 
+    public void updateDeadline(String deadline) throws DateTimeParseException {
+        this.deadline = LocalDate.parse(deadline);
+    }
+
     @Override
     public String toString() {
         return "[D]" + super.toString() + "(by: " +

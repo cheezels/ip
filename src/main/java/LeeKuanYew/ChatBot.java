@@ -1,5 +1,7 @@
 package LeeKuanYew;
 
+import java.util.Arrays;
+
 import LeeKuanYew.Command.Command;
 import LeeKuanYew.Command.ByeCommand;
 import LeeKuanYew.Command.ListCommand;
@@ -7,6 +9,7 @@ import LeeKuanYew.Command.MarkCommand;
 import LeeKuanYew.Command.DeleteCommand;
 import LeeKuanYew.Command.SaveCommand;
 import LeeKuanYew.Command.FindCommand;
+import LeeKuanYew.Command.UpdateCommand;
 import LeeKuanYew.Command.ToDoCommand;
 import LeeKuanYew.Command.DeadlineCommand;
 import LeeKuanYew.Command.EventCommand;
@@ -49,6 +52,22 @@ public class ChatBot {
             try {
                 int k = Integer.parseInt(parts[1]) - 1;
                 return new DeleteCommand(k);
+            } catch (NumberFormatException e) {
+                throw new Exception("This is not a number.");
+            }
+
+        case "updatedeadline":
+            if (parts.length < 2) {
+                throw new Exception("You must specify a task number!");
+            }
+
+            try {
+                String[] updateParts = parts[1].split(" /", 2);
+                if (updateParts.length != 2) {
+                    throw new Exception("Discipline requires deadlines.");
+                }
+                int k = Integer.parseInt(updateParts[0].trim()) - 1;
+                return new UpdateCommand(k, updateParts[1]);
             } catch (NumberFormatException e) {
                 throw new Exception("This is not a number.");
             }
