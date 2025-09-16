@@ -6,6 +6,7 @@ import LeeKuanYew.Command.*;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 
 
 public class LeeKuanYew {
@@ -61,6 +62,6 @@ public class LeeKuanYew {
 
 
     public static void main(String[] args) {
-        new LeeKuanYew("../../../data/LeeKuanYew.txt").run();
+        new LeeKuanYew("data/LeeKuanYew.txt").run();
     }
 }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    private LeeKuanYew leeKuanYew = new LeeKuanYew("../../../../data/LeeKuanYew.txt");
+    private LeeKuanYew leeKuanYew = new LeeKuanYew("data/LeeKuanYew.txt");
 
     @Override
     public void start(Stage stage) {
