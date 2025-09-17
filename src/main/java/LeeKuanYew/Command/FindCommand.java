@@ -30,7 +30,7 @@ public class FindCommand extends Command {
         }
 
         TaskList result = taskList.find(keyword);
-        ListCommand c = new ListCommand();javadoc for execute method for me to copy paste
+        ListCommand c = new ListCommand();
         return c.execute(result, ui, storage);
     }
 
