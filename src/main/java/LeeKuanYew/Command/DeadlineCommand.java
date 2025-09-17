@@ -16,6 +16,16 @@ public class DeadlineCommand extends Command {
         this.deadline = deadline;
     }
 
+    /**
+     * Executes the deadline command by creating a new DeadlineTask and adding it to the task list.
+     * Displays a confirmation message via the UI. If the deadline format is invalid,
+     * returns an error message.
+     *
+     * @param taskList the list of current tasks
+     * @param ui the user interface for displaying messages
+     * @param storage the storage handler (not used in this command)
+     * @return a message indicating the result of the command
+     */
     @Override
     public String execute(TaskList taskList, Ui ui, Storage storage) {
         try {

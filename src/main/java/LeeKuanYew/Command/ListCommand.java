@@ -7,6 +7,16 @@ import LeeKuanYew.Task.TaskList;
 
 public class ListCommand extends Command {
 
+    /**
+     * Executes the list command by displaying all tasks in the task list.
+     * If the task list is empty, returns a message indicating no tasks are present.
+     * Otherwise, shows the list of tasks via the UI.
+     *
+     * @param taskList the list of current tasks
+     * @param ui the user interface for displaying messages
+     * @param storage the storage handler
+     * @return a message indicating the result of the command
+     */
     @Override
     public String execute (TaskList taskList, Ui ui, Storage storage) {
         if (taskList.size() == 0) {

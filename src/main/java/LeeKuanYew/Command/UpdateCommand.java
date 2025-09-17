@@ -19,6 +19,16 @@ public class UpdateCommand extends Command {
         this.deadline = deadline;
     }
 
+    /**
+     * Executes the update command by updating the deadline of the specified task.
+     * Validates the index and handles invalid input or parsing errors.
+     * Returns a confirmation message or an error message via the UI.
+     *
+     * @param taskList the list of current tasks
+     * @param ui the user interface for displaying messages
+     * @param storage the storage handler
+     * @return a message indicating the result of the command
+     */
     @Override
     public String execute (TaskList taskList, Ui ui, Storage storage) {
         if (index < 0) {

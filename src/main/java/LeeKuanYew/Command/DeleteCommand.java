@@ -13,6 +13,15 @@ public class DeleteCommand extends Command {
         this.index = index;
     }
 
+    /**
+     * Executes the delete command by removing the task at the specified index from the task list.
+     * Displays a confirmation or error message via the UI depending on the validity of the index.
+     *
+     * @param taskList the list of current tasks
+     * @param ui the user interface for displaying messages
+     * @param storage the storage handler
+     * @return a message indicating the result of the command
+     */
     @Override
     public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (index < 0) {

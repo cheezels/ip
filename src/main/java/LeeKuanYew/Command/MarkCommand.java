@@ -15,6 +15,15 @@ public class MarkCommand extends Command {
         this.mark = mark;
     }
 
+    /**
+     * Executes the mark command by marking or unmarking the task at the specified index.
+     * Returns a confirmation message via the UI. Handles invalid indices with error messages.
+     *
+     * @param taskList the list of current tasks
+     * @param ui the user interface for displaying messages
+     * @param storage the storage handler
+     * @return a message indicating the result of the command
+     */
     @Override
     public String execute(TaskList taskList, Ui ui, Storage storage) {
         if (index < 0) {
